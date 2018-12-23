@@ -9437,6 +9437,17 @@ readers do not read off random characters that represent icons */
   cursor: wait;
 }
 
+.row {
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.row .col {
+  flex: 1;
+  margin: 0 15px;
+}
+
 html {
   height: 100%;
 }
