@@ -12,7 +12,7 @@
 
     <div class="wrapper_main-inner">
 
-        <form method="POST" action="{{ route('register') }}" class="width-lg">
+        <form method="POST" action="{{ route('register') }}" class="width-lg mb-6">
             @csrf
 
             <div class="form-group{{ $errors->has('first_name') ? ' _error' : '' }}">
@@ -80,9 +80,11 @@
                 </label>
             </div>
 
-            <button class="btn-primary">
-                Register
-            </button>
+            <div class="align-right">
+                <button class="btn-primary">
+                    Register
+                </button>
+            </div>
 
         </form>
 
