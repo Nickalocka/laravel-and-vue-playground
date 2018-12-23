@@ -1,77 +1,91 @@
-@extends('layouts.app')
+@extends('layout.layout')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+@section('main_body')
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <header class="header_page">
+        <div class="wrapper_main-inner">
+            <h1 class="page-title">
+                Register
+            </h1>
         </div>
+    </header>
+
+    <div class="wrapper_main-inner">
+
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div class="form-group{{ $errors->has('first_name') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">First Name</span>
+                    <input type="text" name="first_name" value="{{ old('first_name') }}" required>
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('second_name') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Second Name</span>
+                    <input type="text" name="second_name" value="{{ old('second_name') }}" required>
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('email') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Email</span>
+                    <input type="text" name="email" value="{{ old('email') }}" required autocomplete="email">
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('phone') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Phone Number</span>
+                    <input type="text" name="phone" value="{{ old('phone') }}" required>
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('address') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Address</span>
+                    <input type="text" name="address_1" required>
+                    <input type="text" name="address_2">
+                    <input type="text" name="address_3">
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('city') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">City</span>
+                    <input type="text" name="city" required>
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('postcode') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Postcode</span>
+                    <input type="text" name="postcode" required>
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('password') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Password</span>
+                    <input type="password" name="password" required autocomplete="new-password">
+                </label>
+            </div>
+
+            <div class="form-group{{ $errors->has('password_confirmation') ? ' _error' : '' }}">
+                <label>
+                    <span class="input-label">Confirm Password</span>
+                    <input type="password" name="password_confirmation" required autocomplete="new-password">
+                </label>
+            </div>
+
+            <button class="btn-primary">
+                Register
+            </button>
+
+        </form>
+
     </div>
-</div>
+
 @endsection

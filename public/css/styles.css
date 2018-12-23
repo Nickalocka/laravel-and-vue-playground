@@ -8784,10 +8784,6 @@ body {
   min-height: 100%;
 }
 
-.wrapper_main {
-  margin: 30px 0;
-}
-
 .wrapper_main-inner,
 .navigation_main .navigation_main-inner {
   max-width: 1200px;
@@ -8920,5 +8916,30 @@ body {
   margin-top: auto;
   font-size: 0.8rem;
   text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group > label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  display: block;
+  border: 1px solid #f5f5f5;
+  padding: 10px;
+  height: 40px;
+}
+
+.form-group input + input {
+  margin-top: 10px;
+}
+
+.form-group .input-label {
+  display: block;
+  margin-bottom: 5px;
 }
 

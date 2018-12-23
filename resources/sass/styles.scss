@@ -28,7 +28,9 @@ body {
 }
 
 .wrapper_main {
-  margin: 30px 0;
+  //margin: 30px 0;
+  //already ran into issue when i fancied a full width bar touching the nav
+  //still needed for the above display flex properties to work - which push the footer all the way to the bottom regardless of content size
 }
 
 .wrapper_main-inner {
@@ -162,4 +164,30 @@ body {
   margin-top: auto;
   font-size: 0.8rem;
   text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 30px;
+
+  & > label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    display: block;
+    border: 1px solid $colour_main_extra-light-grey;
+    padding: 10px;
+    height: 40px;
+
+    & + input {
+      margin-top: 10px;
+    }
+  }
+
+  .input-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
 }
