@@ -8918,6 +8918,10 @@ body {
   text-transform: uppercase;
 }
 
+form.width-lg {
+  max-width: 600px;
+}
+
 .form-group {
   margin-bottom: 30px;
 }
@@ -8981,5 +8985,21 @@ body {
 
 .header_page .page-title {
   margin: 0;
+}
+
+.box {
+  padding: 30px;
+}
+
+.box._bordered {
+  border: 1px solid #d0d0d0;
+}
+
+.box._shaded {
+  background: #d0d0d0;
+}
+
+.box._bordered._shaded {
+  border: 1px solid #aaaaaa;
 }
 

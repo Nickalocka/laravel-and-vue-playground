@@ -175,6 +175,12 @@ body {
   text-transform: uppercase;
 }
 
+form {
+  &.width-lg {
+    max-width: 600px;
+  }
+}
+
 .form-group {
   margin-bottom: 30px;
 
@@ -244,5 +250,39 @@ body {
 
   .page-title {
     margin: 0;
+  }
+}
+
+
+
+//<div class="box">
+//   box
+//</div>
+//
+//<div class="box _bordered">
+//    bordered box
+//</div>
+//
+//<div class="box _shaded">
+//    shaded box
+//</div>
+//
+//<div class="box _shaded _bordered">
+//     bordered, shaded box
+//</div>
+
+.box {
+  padding: 30px;
+
+  &._bordered {
+    border: 1px solid $colour_main_light-grey;
+  }
+
+  &._shaded {
+    background: $colour_main_light-grey;
+  }
+
+  &._bordered._shaded {
+    border: 1px solid darken($colour_main_light-grey, 15%);
   }
 }
