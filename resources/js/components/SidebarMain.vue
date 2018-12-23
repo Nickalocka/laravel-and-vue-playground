@@ -11,7 +11,7 @@
     export default {
         data () {
             return {
-                show_sidebar: true,
+                show_sidebar: false,
             }
         },
         mounted() {

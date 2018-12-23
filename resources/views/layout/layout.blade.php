@@ -17,7 +17,7 @@
     </script>
 
 </head>
-<body class="{{$theme_class}}">
+<body>
 
     <div class="outer_container" id="app">
 
@@ -31,7 +31,7 @@
                     {{--@@foreach($main_navigation_links as $main_navigation_link)--}}
                     {{--<a class="navigation-link" href="{{ $main_navigation_link->url }}">{{ $main_navigation_link->label }}</a>--}}
                     {{--@endforeach--}}
-                    <a class="navigation-link _end" data-toggle="sidebar_main"><span> - </span>menu<span> - </span></a>
+                    {{--<a class="navigation-link _end" data-toggle="sidebar_main"><span> - </span>menu<span> - </span></a>--}}
                 </div>
             </nav>
         </header>

@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-        'theme_class' => 'generic',
-    ]);
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
