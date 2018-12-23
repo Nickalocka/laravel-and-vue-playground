@@ -9321,23 +9321,120 @@ readers do not read off random characters that represent icons */
   }
 }
 
-.btn-primary,
-.btn {
-  padding: 10px 20px;
-  background: white;
-  border: 1px solid #d0d0d0;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-  text-decoration: none;
+.btn-default {
+  box-sizing: border-box !important;
+  display: inline-block;
   text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: all 0.5s ease;
+  background: #f9f9f9;
+  color: black;
+  border: 1px solid;
+  border-color: #b9b9b9;
+  padding: 10px 20px;
+  background: #f9f9f9;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-default i {
+  font-size: 1.25rem;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+  background: #ececec;
+  color: black;
+  border: 1px solid;
+  border-color: #7a7a7a;
+  text-decoration: none;
+}
+
+.btn-default._xs {
+  padding: 5px;
+  font-size: 0.8em;
+}
+
+.btn-default._sm {
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+
+.btn-default._lg {
+  padding: 15px 30px;
+  font-size: 1.1em;
+}
+
+.btn-default._xl {
+  padding: 20px 40px;
+  font-size: 1.3em;
+}
+
+.btn-default._loading {
+  cursor: wait;
 }
 
 .btn-primary {
+  box-sizing: border-box !important;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: all 0.5s ease;
   background: #9e1a1a;
-  border: 1px solid #5c0f0f;
   color: white;
+  border: 1px solid;
+  border-color: #881616;
+  padding: 10px 20px;
+  background: #9e1a1a;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary i {
+  font-size: 1.25rem;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: #b41e1e;
+  color: white;
+  border: 1px solid;
+  border-color: #1b0404;
+  text-decoration: none;
+}
+
+.btn-primary._xs {
+  padding: 5px;
+  font-size: 0.8em;
+}
+
+.btn-primary._sm {
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+
+.btn-primary._lg {
+  padding: 15px 30px;
+  font-size: 1.1em;
+}
+
+.btn-primary._xl {
+  padding: 20px 40px;
+  font-size: 1.3em;
+}
+
+.btn-primary._loading {
+  cursor: wait;
 }
 
 html {

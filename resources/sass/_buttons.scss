@@ -1,22 +1,117 @@
-%btn {
-  padding: 10px 20px;
-  background: white;
-  border: 1px solid $colour_main_light-grey;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
+$button-shape: square !default;
+$base-border-radius: 4px;
+
+@mixin hover {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
 }
 
-.btn {
-  @extend %btn;
+@mixin btn-shape($shape: square) {
+  @if $shape == rounded {
+    border-radius: $base-border-radius;
+  }
+}
+
+@mixin btn(
+  $bg-color: #f9f9f9,
+  $text-color: contrasting-color($bg-color, white, black),
+  $border-color: null,
+  $shape: $button-shape,
+  $hover-bg-color: null,
+  $hover-text-color: null,
+  $hover-border-color: null
+) {
+
+  @if($border-color == null) {
+    @if(brightness($bg-color) < 65%) {
+      $border-color: darken($bg-color, 5%);
+    } @else {
+      $border-color: darken($bg-color, 25%);
+    }
+  }
+
+  box-sizing: border-box!important;
+  display: inline-block;
+  //font-weight: $font-weight-bold;
+  //font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  transition: all 0.5s ease;
+  background: $bg-color;
+  color: $text-color;
+  border: 1px solid;
+  border-color: $border-color;
+  padding: 10px 20px;
+  background: $bg-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include btn-shape($shape);
+
+  i {
+    font-size: 1.25rem;
+  }
+
+  @include hover {
+    @if($hover-bg-color == null) {
+      @if(brightness($bg-color) < 50%) {
+        $hover-bg-color: lighten($bg-color, 5%);
+      } @else {
+        $hover-bg-color: darken($bg-color, 5%);
+      }
+    }
+
+    @if($hover-text-color == null) {
+      $hover-text-color: contrasting-color($hover-bg-color, white, black)
+    }
+
+    @if($hover-border-color == null) {
+      $hover-border-color: darken($border-color, 25%)
+    }
+
+    background: $hover-bg-color;
+    color: $hover-text-color;
+    border: 1px solid;
+    border-color: $hover-border-color;
+    text-decoration: none;
+  }
+
+  &._xs {
+    padding: 5px;
+    font-size: 0.8em;
+  }
+
+  &._sm {
+    padding: 5px 10px;
+    font-size: 0.9em;
+  }
+
+  &._lg {
+    padding: 15px 30px;
+    font-size: 1.1em;
+  }
+
+  &._xl {
+    padding: 20px 40px;
+    font-size: 1.3em;
+  }
+
+  &._loading {
+    cursor: wait;
+  }
+
+}
+
+.btn-default {
+  @include btn()
 }
 
 .btn-primary {
-  @extend %btn;
-  background: $colour_main;
-  border: 1px solid darken($colour_main, 15%);
-  color: contrasting-color($colour_main, white, black);
+  @include btn(
+          $bg-color: $colour_main
+  )
 }
