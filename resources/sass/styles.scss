@@ -1,0 +1,165 @@
+@import "~normalize.css";
+@import "font-awesome-imports";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+$colour_main_dark-grey: #333333;
+$colour_main_extra-light-grey: #f5f5f5;
+$colour_main: #9e1a1a;
+$sidebar_main_zindex: 2;
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  height: 100%;
+  background: $colour_main_extra-light-grey;
+}
+
+.outer_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.wrapper_main {
+  margin: 30px 0;
+}
+
+.wrapper_main-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 30px;
+}
+
+.header_main {
+  background-color: $colour_main;
+  color: white;
+}
+
+.navigation_main {
+  background: $colour_main_dark-grey;
+
+  .navigation_main-inner {
+    @extend .wrapper_main-inner;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navigation-link {
+    $border: 2px solid $colour_main_dark-grey;
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: $border;
+    border-top: $border;
+    transition: border 0.5s ease;
+
+    span {
+      color: $colour_main_dark-grey;
+      transition: color 0.5s ease;
+    }
+
+    &:hover, &:active, &:focus {
+      border-color: white;
+
+      span {
+        color: white;
+      }
+
+    }
+  }
+
+}
+
+.sidebar_main {
+  $border: 1px solid $colour_main_extra-light-grey;
+  background: $colour_main_dark-grey;
+  color: $colour_main_extra-light-grey;
+  border-right: $border;
+  z-index: $sidebar_main_zindex;
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 300px;
+
+  .fa-angle-double-left {
+    display: none;
+  }
+
+  &.active {
+    display: inline-block;
+
+    .fa-angle-double-right {
+      display: none;
+    }
+
+    .fa-angle-double-left {
+      display: block;
+    }
+  }
+
+  &._left {
+    left: 0;
+  }
+
+  &._right {
+    right: 0;
+  }
+
+  %sidebar-link {
+    color: $colour_main_extra-light-grey;
+    padding: 10px;
+    border-bottom: $border;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+  }
+
+  .sidebar-link {
+    @extend %sidebar-link;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: padding 0.5s ease;
+
+    span {
+      color: $colour_main_dark-grey;
+      transition: color 0.5s ease;
+    }
+
+    &:hover, &:active, &:focus {
+      padding-left: 40px;
+
+      span {
+        color: white;
+      }
+
+    }
+  }
+
+  .sidebar-link-close {
+    @extend %sidebar-link;
+    text-align: right;
+  }
+
+}
+
+.footer_main {
+  padding: 10px 0;
+  background: $colour_main_dark-grey;
+  color: white;
+  margin-top: auto;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
