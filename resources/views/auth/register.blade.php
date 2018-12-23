@@ -12,7 +12,7 @@
 
     <div class="wrapper_main-inner">
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" class="_inline">
             @csrf
 
             <div class="form-group{{ $errors->has('first_name') ? ' _error' : '' }}">

@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web);/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -8772,7 +8772,7 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Titillium Web", sans-serif;
   font-size: 16px;
   height: 100%;
   background: #f5f5f5;
@@ -8929,7 +8929,7 @@ body {
 
 .form-group input {
   display: block;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #d0d0d0;
   padding: 10px;
   height: 40px;
 }
@@ -8941,5 +8941,45 @@ body {
 .form-group .input-label {
   display: block;
   margin-bottom: 5px;
+}
+
+._inline .form-group > label {
+  border: 1px solid #d0d0d0;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+._inline .form-group .input-label {
+  margin: auto 0;
+  width: 15%;
+  min-width: 100px;
+  padding: 10px;
+}
+
+._inline .form-group input {
+  width: 85%;
+  border-top: 0;
+  border-bottom: 1px solid #d0d0d0;
+  border-right: 0;
+  border-left: 1px solid #d0d0d0;
+}
+
+._inline .form-group input + input {
+  margin-left: auto;
+  border-top: 1px solid #d0d0d0;
+}
+
+._inline .form-group input:last-child {
+  border-bottom: 0;
+}
+
+.header_page {
+  border-bottom: 1px solid #d0d0d0;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+
+.header_page .page-title {
+  margin: 0;
 }
 
