@@ -48109,15 +48109,27 @@ var app = new Vue({
 
 /***/ }),
 
+/***/ "./resources/sass/theme/strife/styles.scss":
+/*!*************************************************!*\
+  !*** ./resources/sass/theme/strife/styles.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!**********************************************************************************!*\
-  !*** multi ./resources/js/scripts.js ./resources/sass/theme/generic/styles.scss ***!
-  \**********************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** multi ./resources/js/scripts.js ./resources/sass/theme/generic/styles.scss ./resources/sass/theme/strife/styles.scss ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/nick/projects/sassy-strife/resources/js/scripts.js */"./resources/js/scripts.js");
-module.exports = __webpack_require__(/*! /home/nick/projects/sassy-strife/resources/sass/theme/generic/styles.scss */"./resources/sass/theme/generic/styles.scss");
+__webpack_require__(/*! /home/nick/projects/sassy-strife/resources/sass/theme/generic/styles.scss */"./resources/sass/theme/generic/styles.scss");
+module.exports = __webpack_require__(/*! /home/nick/projects/sassy-strife/resources/sass/theme/strife/styles.scss */"./resources/sass/theme/strife/styles.scss");
 
 
 /***/ })

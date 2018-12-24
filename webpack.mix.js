@@ -12,12 +12,5 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/scripts.js', 'public/js')
-    .sass(
-        'resources/sass/theme/generic/styles.scss', 'public/css',
-        {
-            includePaths: [
-                'node_modules',
-                'resources/sass/global'
-            ]
-        }
-    );
+    .sass('resources/sass/theme/generic/styles.scss', 'public/css/generic')
+    .sass('resources/sass/theme/strife/styles.scss', 'public/css/strife');

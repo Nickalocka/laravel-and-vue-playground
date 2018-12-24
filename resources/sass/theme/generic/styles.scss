@@ -1,17 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
-@import "~normalize.css";
-@import "utilities/font-awesome-imports";
+
+$font_main-family: sans-serif;
+$font_main-size: 16px;
+
 @import "colours";
-@import "utilities/z-index-map";
-@import "structure";
-@import "utilities/grid";
-@import "utilities/colour";
-@import "utilities/layout";
-@import "components/buttons";
-@import "components/forms";
-@import "components/animated-loading-spinner";
-
-
+@import "../../global/all-global-imports";
 
 ////////////////////////////////////////////////////////////////
 //DOCUMENTATION

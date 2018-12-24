@@ -59,8 +59,6 @@
   }
 }
 
-//misc stuff
-
 @mixin clearfix() {
   clear:both;
   &::after {
