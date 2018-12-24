@@ -1,5 +1,5 @@
 @extends('layout.layout')
 
 @section('main_body')
-    Hello
+    Hello <i class="fas fa-times"></i>
 @endsection

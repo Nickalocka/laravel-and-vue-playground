@@ -12,4 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/scripts.js', 'public/js')
-   .sass('resources/sass/styles.scss', 'public/css');
+    .sass(
+        'resources/sass/theme/generic/styles.scss', 'public/css',
+        {
+            includePaths: [
+                'node_modules',
+                'resources/sass/global'
+            ]
+        }
+    );

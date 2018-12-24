@@ -1,0 +1,20 @@
+$colour_main_dark-grey: #333333;
+$colour_main_light-grey: #d0d0d0;
+$colour_main_extra-light-grey: #f5f5f5;
+$colour_main: #9e1a1a;
+
+$ColorPalette: (
+        mono: (
+                light: lighten(#b9b8af, 20%),
+                mid: #b9b8af,
+                dark: #252324,
+        ),
+        primary: (
+                mid: #1f3c7d,
+        ),
+        prompt: (
+                positive: #449922,
+        )
+);
+
+

@@ -1,0 +1,83 @@
+.align {
+  &-right {
+    text-align: right;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-center {
+    text-align: center;
+  }
+}
+
+//padding and margin helper classes
+
+@for $i from 0 through 10 {
+
+  $margin: $i * 5;
+
+  .m-#{$i} {
+    margin: #{$margin}px !important;
+  }
+
+  .mt-#{$i} {
+    margin-top: #{$margin}px !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{$margin}px !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: #{$margin}px !important;
+  }
+
+  .mr-#{$i} {
+    margin-right: #{$margin}px !important;
+  }
+
+  .p-#{$i} {
+    padding: #{$margin}px !important;
+  }
+
+  .pt-#{$i} {
+    padding-top: #{$margin}px !important;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: #{$margin}px !important;
+  }
+
+  .pl-#{$i} {
+    padding-left: #{$margin}px !important;
+  }
+
+  .pr-#{$i} {
+    padding-right: #{$margin}px !important;
+  }
+}
+
+//misc stuff
+
+@mixin clearfix() {
+  clear:both;
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}

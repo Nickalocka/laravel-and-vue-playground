@@ -1,0 +1,67 @@
+form {
+  &.width-lg {
+    max-width: 600px;
+  }
+}
+
+.form-group {
+  margin-bottom: 30px;
+
+  //label wraps around
+  & > label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    display: block;
+    border: 1px solid $colour_main_light-grey;
+    padding: 10px;
+    height: 40px;
+
+    //add a bit of spacing for multiple inputs inside one form group
+    & + input {
+      margin-top: 10px;
+    }
+  }
+
+  .input-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  //modifier that puts the label next to input, defaults to above input
+  ._inline & {
+    & > label {
+      border: 1px solid $colour_main_light-grey;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .input-label {
+      margin: auto 0;
+      width: 15%;
+      min-width: 100px;
+      padding: 10px;
+    }
+
+    input {
+      width: 85%;
+      border-top: 0;
+      border-bottom: 1px solid $colour_main_light-grey;
+      border-right: 0;
+      border-left: 1px solid $colour_main_light-grey;
+
+      & + input {
+        margin-left: auto;
+        border-top: 1px solid $colour_main_light-grey;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+  }
+
+}
