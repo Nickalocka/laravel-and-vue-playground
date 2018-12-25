@@ -55,7 +55,7 @@
 
             <div class="row">
                 <div class="col">
-                    <div class="form-group{{ $errors->has('address') ? ' _error' : '' }}">
+                    <div class="form-group{{ $errors->has('address_1') ? ' _error' : '' }}">
                         <label>
                             <span class="input-label">Address</span>
                             <input type="text" name="address_1" required>
@@ -101,7 +101,7 @@
             </div>
 
             <div class="align-right">
-                <button class="btn-primary">
+                <button class="btn-primary" type="submit">
                     Register
                 </button>
             </div>
