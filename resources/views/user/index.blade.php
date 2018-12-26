@@ -14,13 +14,13 @@
 
         @foreach($table_classes as $table_class)
             <div class="box _bordered mb-6">
-                <table class="table {{ $table_class }}">
+                <table class="table {{ $table_class }} _stack-md">
                     <colgroup>
-                        <col data-th="Name">
-                        <col data-th="Email">
-                        <col data-th="Phone">
-                        <col data-th="City">
-                        <col data-th="Postcode">
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
                         <col style="width: 39px;">
                     </colgroup>
                     <thead>
@@ -37,31 +37,30 @@
                         <th>
                             City
                         </th>
-                        <th>
+                        <th colspan="2">
                             Postcode
                         </th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($users as $user)
                         <tr>
-                            <td>
+                            <td data-th="Name:">
                                 {{ $user->first_name }} {{ $user->second_name }}
                             </td>
-                            <td>
+                            <td data-th="Email:">
                                 {{ $user->email }}
                             </td>
-                            <td>
+                            <td data-th="Phone:">
                                 {{ $user->phone }}
                             </td>
-                            <td>
+                            <td data-th="City:">
                                 {{ $user->city }}
                             </td>
-                            <td>
+                            <td data-th="Postcode:">
                                 {{ $user->postcode }}
                             </td>
-                            <td>
+                            <td data-th="View:" class="align-right">
                                 <a class="link-primary">
                                     <i class="fas fa-search"></i>
                                 </a>

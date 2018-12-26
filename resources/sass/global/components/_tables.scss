@@ -40,4 +40,38 @@
       border-bottom: 1px solid $colour_main_light-grey;
     }
   }
+
+  &._stack {
+    @include all-breakpoints() {
+      thead, th {
+        display: none;
+      }
+
+      td {
+        display: block;
+
+        &::before {
+          font-weight: bold;
+          display: inline-block;
+          margin-right: 10px;
+          content: attr(data-th);
+        }
+
+        &:last-child {
+          margin-bottom: 30px;
+        }
+      }
+
+      &._bordered {
+        td {
+          border-bottom: 0;
+
+          &:last-child {
+            border-bottom: 1px solid $colour_main_light-grey;
+          }
+        }
+      }
+
+    }
+  }
 }
