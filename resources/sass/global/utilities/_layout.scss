@@ -1,13 +1,8 @@
 .align {
   &-right {
     text-align: right;
-
-    @each $breakpoint in $breakpoints {
-      &-#{$breakpoint} {
-        @include breakpoint($breakpoint) {
-          text-align: right;
-        }
-      }
+    @include all-breakpoints() {
+      text-align: right;
     }
   }
 

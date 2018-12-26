@@ -29,3 +29,13 @@ $breakpoints: 'xs',
   }
 
 }
+
+@mixin all-breakpoints() {
+  @each $breakpoint in $breakpoints {
+    &-#{$breakpoint} {
+      @include breakpoint($breakpoint) {
+        @content;
+      }
+    }
+  }
+}
