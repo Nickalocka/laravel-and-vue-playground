@@ -1,14 +1,6 @@
 $button-shape: square !default;
 $base-border-radius: 4px;
 
-@mixin hover {
-  &:hover,
-  &:focus,
-  &:active {
-    @content;
-  }
-}
-
 @mixin btn-shape($shape: square) {
   @if $shape == rounded {
     border-radius: $base-border-radius;
@@ -51,10 +43,6 @@ $base-border-radius: 4px;
   cursor: pointer;
 
   @include btn-shape($shape);
-
-  i {
-    font-size: 1.25rem;
-  }
 
   @include hover {
     @if($hover-bg-color == null) {

@@ -1,0 +1,43 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    border-bottom: 1px solid $colour_main_light-grey;
+  }
+
+  th, td {
+    padding: 10px;
+
+    ._slim & {
+      padding: 5px;
+    }
+  }
+
+  &._fixed {
+    table-layout: fixed;
+  }
+
+  &._bordered {
+    th, td {
+      border: 1px solid $colour_main_light-grey;
+    }
+  }
+
+  &._striped {
+
+  }
+
+  &._shaded {
+    th, td {
+      background: $colour_main_light-grey;
+    }
+  }
+
+  &._lined {
+    td {
+      border-bottom: 1px solid $colour_main_light-grey;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+%link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link {
+  @extend %link;
+
+  &-primary {
+    @extend %link;
+    color: $colour_main;
+
+    @include hover {
+      color: darken($colour_main, 15%);
+    }
+  }
+
+  &-light-grey {
+    @extend %link;
+    color: $colour_main_light-grey;
+
+    @include hover {
+      color: darken($colour_main_light-grey, 15%);
+    }
+  }
+
+  &-dark-grey {
+    @extend %link;
+    color: $colour_main_dark-grey;
+
+    @include hover {
+      color: lighten($colour_main_dark-grey, 15%);
+    }
+  }
+
+}

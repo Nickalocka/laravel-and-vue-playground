@@ -14,3 +14,6 @@
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index');
+
+Route::get('user', 'UserController@index');
+Route::get('user/{user}', 'UserController@show');

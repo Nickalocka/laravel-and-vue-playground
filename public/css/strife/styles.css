@@ -9999,10 +9999,6 @@ body {
   cursor: pointer;
 }
 
-.btn-default i {
-  font-size: 1.25rem;
-}
-
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active {
@@ -10057,10 +10053,6 @@ body {
   cursor: pointer;
 }
 
-.btn-primary i {
-  font-size: 1.25rem;
-}
-
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
@@ -10093,6 +10085,44 @@ body {
 
 .btn-primary._loading {
   cursor: wait;
+}
+
+.link-dark-grey,
+.link-light-grey,
+.link-primary,
+.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link-primary {
+  color: #9e1a1a;
+}
+
+.link-primary:hover,
+.link-primary:focus,
+.link-primary:active {
+  color: #5c0f0f;
+}
+
+.link-light-grey {
+  color: #d0d0d0;
+}
+
+.link-light-grey:hover,
+.link-light-grey:focus,
+.link-light-grey:active {
+  color: #aaaaaa;
+}
+
+.link-dark-grey {
+  color: #333333;
+}
+
+.link-dark-grey:hover,
+.link-dark-grey:focus,
+.link-dark-grey:active {
+  color: #595959;
 }
 
 form.width-lg {
@@ -10152,6 +10182,44 @@ form.width-lg {
 
 ._inline .form-group input:last-child {
   border-bottom: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+}
+
+._slim .table th,
+._slim .table td {
+  padding: 5px;
+}
+
+.table._fixed {
+  table-layout: fixed;
+}
+
+.table._bordered th,
+.table._bordered td {
+  border: 1px solid #d0d0d0;
+}
+
+.table._shaded th,
+.table._shaded td {
+  background: #d0d0d0;
+}
+
+.table._lined td {
+  border-bottom: 1px solid #d0d0d0;
 }
 
 /*messing with the padding and margin and font size height / width / border-radius /  on this makes some interesting effects*/
