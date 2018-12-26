@@ -1,11 +1,13 @@
 @import "~normalize.css";
 @import "utilities/font-awesome-imports";
 @import "core/z-index-map";
+@import "core/breakpoints";
 @import "core/structure";
 @import "core/grid";
 @import "utilities/colour";
 @import "utilities/helpers";
 @import "utilities/layout";
+@import "components/layout";
 @import "components/buttons";
 @import "components/links";
 @import "components/forms";

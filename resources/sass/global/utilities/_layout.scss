@@ -1,6 +1,14 @@
 .align {
   &-right {
     text-align: right;
+
+    @each $breakpoint in $breakpoints {
+      &-#{$breakpoint} {
+        @include breakpoint($breakpoint) {
+          text-align: right;
+        }
+      }
+    }
   }
 
   &-left {
@@ -60,7 +68,7 @@
 }
 
 @mixin clearfix() {
-  clear:both;
+  clear: both;
   &::after {
     display: block;
     content: "";
