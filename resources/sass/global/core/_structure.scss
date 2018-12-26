@@ -55,9 +55,12 @@ body {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    border: 0;
     border-bottom: $border;
     border-top: $border;
     transition: border 0.5s ease;
+    background: transparent;
+    cursor: pointer;
 
     span {
       color: $colour_main_dark-grey;

@@ -6,9 +6,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Sassy Strife') }}</title>
 
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/generic/styles.css">
 
     <script>
         window.Laravel = <?php echo json_encode([
@@ -19,39 +19,43 @@
 </head>
 <body>
 
-    <div class="outer_container" id="app">
+<div class="outer_container" id="app">
 
-        <header class="header_main">
-            <div class="wrapper_main-inner">
-                <h1 class="site-title">Sassy Strife</h1>
-            </div>
-            <nav class="navigation_main">
-                <div class="navigation_main-inner">
-                    <a class="navigation-link" href="/"><span> - </span>Home<span> - </span></a>
-                    {{--@@foreach($main_navigation_links as $main_navigation_link)--}}
-                    {{--<a class="navigation-link" href="{{ $main_navigation_link->url }}">{{ $main_navigation_link->label }}</a>--}}
-                    {{--@endforeach--}}
-                    {{--<a class="navigation-link _end" data-toggle="sidebar_main"><span> - </span>menu<span> - </span></a>--}}
-                </div>
-            </nav>
-        </header>
-
-        <div class="wrapper_main">
-            @yield('main_body')
+    <header class="header_main">
+        <div class="wrapper_main-inner">
+            <h1 class="site-title">Sassy Strife</h1>
         </div>
-
-        <footer class="footer_main">
-            <div class="wrapper_main-inner">
-                Nick Strife &copy; {{ \Illuminate\Support\Carbon::now()->format('Y') }}
+        <nav class="navigation_main">
+            <div class="navigation_main-inner">
+                <a class="navigation-link" href="/"><span> - </span>Home<span> - </span></a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="navigation-link" type="submit"><span> - </span>Log Out<span> - </span></button>
+                </form>
+                {{--@@foreach($main_navigation_links as $main_navigation_link)--}}
+                {{--<a class="navigation-link" href="{{ $main_navigation_link->url }}">{{ $main_navigation_link->label }}</a>--}}
+                {{--@endforeach--}}
+                {{--<a class="navigation-link _end" data-toggle="sidebar_main"><span> - </span>menu<span> - </span></a>--}}
             </div>
-        </footer>
+        </nav>
+    </header>
 
-        <sidebar-main></sidebar-main>
-
+    <div class="wrapper_main">
+        @yield('main_body')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/scripts.js') }}"></script>
+    <footer class="footer_main">
+        <div class="wrapper_main-inner">
+            Nick Strife &copy; {{ \Illuminate\Support\Carbon::now()->format('Y') }}
+        </div>
+    </footer>
+
+    <sidebar-main></sidebar-main>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('js/scripts.js') }}"></script>
 
 </body>
 </html>

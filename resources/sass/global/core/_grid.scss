@@ -2,9 +2,27 @@
   display: flex;
   margin-left: -15px;
   margin-right: -15px;
+  flex-wrap: wrap;
 
   .col {
     flex: 1;
-    margin: 0 15px;
+    padding: 0 15px;
+
+    @for $i from 1 through 100 {
+      &._#{$i}p {
+        flex: 0 0 percentage($i / 100);
+        max-width: percentage($i / 100);
+      }
+    }
+
+  }
+
+  @for $i from 1 through 10 {
+    &._#{$i} {
+      .col {
+        flex: 0 0 percentage(1 / $i);
+        max-width: percentage(1 / $i);
+      }
+    }
   }
 }
