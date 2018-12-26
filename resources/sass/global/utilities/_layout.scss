@@ -7,11 +7,16 @@
   }
 
   &-left {
-    text-align: left;
+    @include all-breakpoints() {
+      text-align: left;
+    }
   }
 
   &-center {
     text-align: center;
+    @include all-breakpoints() {
+      text-align: center;
+    }
   }
 }
 
@@ -77,8 +82,14 @@
 
 .full-width {
   width: 100%;
+  @include all-breakpoints() {
+    width: 100%;
+  }
 }
 
 .half-width {
   width: 50%;
+  @include all-breakpoints() {
+    width: 50%;
+  }
 }

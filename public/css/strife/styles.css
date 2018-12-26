@@ -9387,12 +9387,68 @@ body {
   }
 }
 
-.align-left {
-  text-align: left;
+@media only screen and (max-width: 450px) {
+  .align-left-xs {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 450px) {
+  .align-left-sm {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+  .align-left-md {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  .align-left-lg {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .align-left-xl {
+    text-align: left;
+  }
 }
 
 .align-center {
   text-align: center;
+}
+
+@media only screen and (max-width: 450px) {
+  .align-center-xs {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 450px) {
+  .align-center-sm {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+  .align-center-md {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  .align-center-lg {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .align-center-xl {
+    text-align: center;
+  }
 }
 
 .m-0 {
@@ -9849,8 +9905,68 @@ body {
   width: 100%;
 }
 
+@media only screen and (max-width: 450px) {
+  .full-width-xs {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 450px) {
+  .full-width-sm {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+  .full-width-md {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  .full-width-lg {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .full-width-xl {
+    width: 100%;
+  }
+}
+
 .half-width {
   width: 50%;
+}
+
+@media only screen and (max-width: 450px) {
+  .half-width-xs {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 450px) {
+  .half-width-sm {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+  .half-width-md {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px) {
+  .half-width-lg {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .half-width-xl {
+    width: 50%;
+  }
 }
 
 .header_main {
