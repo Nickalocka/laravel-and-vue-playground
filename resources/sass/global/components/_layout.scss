@@ -140,26 +140,20 @@
   }
 }
 
-
-
-//<div class="box">
-//   box
-//</div>
-//
-//<div class="box _bordered">
-//    bordered box
-//</div>
-//
-//<div class="box _shaded">
-//    shaded box
-//</div>
-//
-//<div class="box _shaded _bordered">
-//     bordered, shaded box
-//</div>
-
 .box {
   padding: 30px;
+
+  .box-header {
+    margin: -30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $colour_main_light-grey;
+
+    .box-title {
+      margin: 0;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+    }
+  }
 
   &._bordered {
     border: 1px solid $colour_main_light-grey;

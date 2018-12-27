@@ -15,7 +15,7 @@
         @foreach($table_classes as $table_class)
             <div class="box _bordered mb-6">
                 <header class="box-header">
-                    <h1>Class: table {{ $table_class }}</h1>
+                    <h1 class="box-title">Class: table {{ $table_class }}</h1>
                 </header>
                 <user-table
                         :class="{{ json_encode($table_class) }}"

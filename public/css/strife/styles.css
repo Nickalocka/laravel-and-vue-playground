@@ -10147,6 +10147,18 @@ body {
   padding: 30px;
 }
 
+.box .box-header {
+  margin: -30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.box .box-header .box-title {
+  margin: 0;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+}
+
 .box._bordered {
   border: 1px solid #d0d0d0;
 }
