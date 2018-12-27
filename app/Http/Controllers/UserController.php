@@ -12,7 +12,7 @@ class UserController extends Controller
         $users = User::all();
 
         $table_classes = [
-            '_striped',
+            '',
             '_shaded',
             '_bordered',
             '_lined',

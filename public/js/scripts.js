@@ -36795,149 +36795,140 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    { staticClass: "table _stack-md", class: _vm.table_class },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        [
-          _vm._l(_vm.users, function(user) {
-            return [
-              _c("tr", [
-                _c("td", { attrs: { "data-th": "Name:" } }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(user.first_name) +
-                      " " +
-                      _vm._s(user.second_name) +
-                      "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { "data-th": "Email:" } }, [
-                  _vm._v(
-                    "\n                " + _vm._s(user.email) + "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { "data-th": "Phone:" } }, [
-                  _vm._v(
-                    "\n                " + _vm._s(user.phone) + "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { "data-th": "City:" } }, [
-                  _vm._v(
-                    "\n                " + _vm._s(user.city) + "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { attrs: { "data-th": "Postcode:" } }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(user.postcode) +
-                      "\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "align-right" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "link-primary",
-                      attrs: { href: "/user/" + user.id }
-                    },
-                    [_c("i", { staticClass: "fas fa-search" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "link-primary",
-                      on: {
-                        click: function($event) {
-                          _vm.toggle_row($event, user.id)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-chevron-down" })]
-                  )
-                ])
+  return _c("table", { staticClass: "table _stack-md" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c(
+      "tbody",
+      [
+        _vm._l(_vm.users, function(user) {
+          return [
+            _c("tr", [
+              _c("td", { attrs: { "data-th": "Name:" } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(user.first_name) +
+                    " " +
+                    _vm._s(user.second_name) +
+                    "\n            "
+                )
               ]),
               _vm._v(" "),
-              _c(
-                "tr",
-                {
-                  staticClass: "hidden",
-                  attrs: { "data-detail-row": user.id }
-                },
-                [
-                  _c("td", { attrs: { colspan: "6" } }, [
-                    _c("div", { staticClass: "box _bordered" }, [
-                      _c("strong", [_vm._v("Address:")]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(user.address_1) +
-                              " "
-                          ),
-                          _c("br"),
-                          _vm._v(" "),
-                          user.address_2
-                            ? [
-                                _vm._v(
-                                  "\n                            " +
-                                    _vm._s(user.address_2) +
-                                    " "
-                                ),
-                                _c("br")
-                              ]
-                            : _vm._e(),
-                          _vm._v(" "),
-                          user.address_3
-                            ? [
-                                _vm._v(
-                                  "\n                            " +
-                                    _vm._s(user.address_3) +
-                                    " "
-                                ),
-                                _c("br")
-                              ]
-                            : _vm._e(),
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(user.city) +
-                              " "
-                          ),
-                          _c("br"),
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(user.postcode) +
-                              " "
-                          ),
-                          _c("br")
-                        ],
-                        2
-                      )
-                    ])
+              _c("td", { attrs: { "data-th": "Email:" } }, [
+                _vm._v(
+                  "\n                " + _vm._s(user.email) + "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { "data-th": "Phone:" } }, [
+                _vm._v(
+                  "\n                " + _vm._s(user.phone) + "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { "data-th": "City:" } }, [
+                _vm._v(
+                  "\n                " + _vm._s(user.city) + "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { attrs: { "data-th": "Postcode:" } }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(user.postcode) +
+                    "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "align-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "link-primary",
+                    attrs: { href: "/user/" + user.id }
+                  },
+                  [_c("i", { staticClass: "fas fa-search" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "link-primary",
+                    on: {
+                      click: function($event) {
+                        _vm.toggle_row($event, user.id)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-chevron-down" })]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "tr",
+              { staticClass: "hidden", attrs: { "data-detail-row": user.id } },
+              [
+                _c("td", { attrs: { colspan: "6" } }, [
+                  _c("div", { staticClass: "box _bordered" }, [
+                    _c("strong", [_vm._v("Address:")]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(user.address_1) +
+                            " "
+                        ),
+                        _c("br"),
+                        _vm._v(" "),
+                        user.address_2
+                          ? [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(user.address_2) +
+                                  " "
+                              ),
+                              _c("br")
+                            ]
+                          : _vm._e(),
+                        _vm._v(" "),
+                        user.address_3
+                          ? [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(user.address_3) +
+                                  " "
+                              ),
+                              _c("br")
+                            ]
+                          : _vm._e(),
+                        _vm._v(
+                          "\n                        " + _vm._s(user.city) + " "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(user.postcode) +
+                            " "
+                        ),
+                        _c("br")
+                      ],
+                      2
+                    )
                   ])
-                ]
-              )
-            ]
-          })
-        ],
-        2
-      )
-    ]
-  )
+                ])
+              ]
+            )
+          ]
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {

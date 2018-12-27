@@ -1,5 +1,5 @@
 <template>
-    <table :class="table_class" class="table _stack-md">
+    <table class="table _stack-md">
         <colgroup>
             <col>
             <col>
