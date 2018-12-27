@@ -9969,6 +9969,40 @@ body {
   }
 }
 
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 450px) {
+  .hidden-xs {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hidden-sm {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hidden-md {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .hidden-xl {
+    display: none;
+  }
+}
+
 .header_main {
   background-color: #9e1a1a;
   color: white;

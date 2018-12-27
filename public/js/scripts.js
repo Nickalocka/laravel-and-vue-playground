@@ -1854,8 +1854,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['users', 'table_class']
+  props: ['users', 'table_class'],
+  methods: {
+    toggle_row: function toggle_row(user_id) {
+      var detail_row = $('[data-detail-row=' + user_id + ']');
+      detail_row.toggleClass('hidden');
+    }
+  }
 });
 
 /***/ }),
@@ -36768,51 +36797,136 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.users, function(user) {
-          return _c("tr", [
-            _c("td", { attrs: { "data-th": "Name:" } }, [
-              _vm._v(
-                "\n            " +
-                  _vm._s(user.first_name) +
-                  " " +
-                  _vm._s(user.second_name) +
-                  "\n        "
+        [
+          _vm._l(_vm.users, function(user) {
+            return [
+              _c("tr", [
+                _c("td", { attrs: { "data-th": "Name:" } }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(user.first_name) +
+                      " " +
+                      _vm._s(user.second_name) +
+                      "\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-th": "Email:" } }, [
+                  _vm._v(
+                    "\n                " + _vm._s(user.email) + "\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-th": "Phone:" } }, [
+                  _vm._v(
+                    "\n                " + _vm._s(user.phone) + "\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-th": "City:" } }, [
+                  _vm._v(
+                    "\n                " + _vm._s(user.city) + "\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { attrs: { "data-th": "Postcode:" } }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(user.postcode) +
+                      "\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "align-right" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link-primary",
+                      attrs: { href: "/user/" + user.id }
+                    },
+                    [_c("i", { staticClass: "fas fa-search" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "link-primary",
+                      on: {
+                        click: function($event) {
+                          _vm.toggle_row(user.id)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-down" })]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  staticClass: "detail-row hidden",
+                  attrs: { "data-detail-row": user.id }
+                },
+                [
+                  _c("td", { attrs: { colspan: "6" } }, [
+                    _c("div", { staticClass: "box _bordered" }, [
+                      _c("strong", [_vm._v("Address:")]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(user.address_1) +
+                              " "
+                          ),
+                          _c("br"),
+                          _vm._v(" "),
+                          user.address_2
+                            ? [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(user.address_2) +
+                                    " "
+                                ),
+                                _c("br")
+                              ]
+                            : _vm._e(),
+                          _vm._v(" "),
+                          user.address_3
+                            ? [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(user.address_3) +
+                                    " "
+                                ),
+                                _c("br")
+                              ]
+                            : _vm._e(),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(user.city) +
+                              " "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(user.postcode) +
+                              " "
+                          ),
+                          _c("br")
+                        ],
+                        2
+                      )
+                    ])
+                  ])
+                ]
               )
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-th": "Email:" } }, [
-              _vm._v("\n            " + _vm._s(user.email) + "\n        ")
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-th": "Phone:" } }, [
-              _vm._v("\n            " + _vm._s(user.phone) + "\n        ")
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-th": "City:" } }, [
-              _vm._v("\n            " + _vm._s(user.city) + "\n        ")
-            ]),
-            _vm._v(" "),
-            _c("td", { attrs: { "data-th": "Postcode:" } }, [
-              _vm._v("\n            " + _vm._s(user.postcode) + "\n        ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "td",
-              { staticClass: "align-right", attrs: { "data-th": "View:" } },
-              [
-                _c(
-                  "a",
-                  {
-                    staticClass: "link-primary",
-                    attrs: { href: "/user/" + user.id }
-                  },
-                  [_c("i", { staticClass: "fas fa-search" })]
-                )
-              ]
-            )
-          ])
-        }),
-        0
+            ]
+          })
+        ],
+        2
       )
     ]
   )
@@ -36833,7 +36947,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("col"),
       _vm._v(" "),
-      _c("col", { staticStyle: { width: "39px" } })
+      _c("col", { staticStyle: { width: "70px" } })
     ])
   },
   function() {
