@@ -50,12 +50,12 @@
                     <a class="link-primary" :href="'/user/'+user.id">
                         <i class="fas fa-search"></i>
                     </a>
-                    <a class="link-primary" v-on:click="toggle_row(user.id)">
+                    <a class="link-primary" v-on:click="toggle_row($event, user.id)">
                         <i class="fas fa-chevron-down"></i>
                     </a>
                 </td>
             </tr>
-            <tr :data-detail-row="user.id" class="detail-row hidden">
+            <tr :data-detail-row="user.id" class="hidden">
                 <td colspan="6">
                     <div class="box _bordered">
                         <strong>Address:</strong>
@@ -85,8 +85,16 @@
             'table_class',
         ],
         methods: {
-            toggle_row: function (user_id) {
+            toggle_row: function (event, user_id) {
                 var detail_row = $('[data-detail-row=' + user_id + ']');
+                var chevron = $(event.currentTarget).find('.fas');
+                chevron.toggleClass(function(){
+                    if ( $( this ).hasClass('fa-chevron-down')) {
+                        return "fa-chevron-up";
+                    } else {
+                        return "fa-chevron-down";
+                    }
+                });
                 detail_row.toggleClass('hidden');
             }
         }

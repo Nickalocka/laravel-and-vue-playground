@@ -1880,8 +1880,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['users', 'table_class'],
   methods: {
-    toggle_row: function toggle_row(user_id) {
+    toggle_row: function toggle_row(event, user_id) {
       var detail_row = $('[data-detail-row=' + user_id + ']');
+      var chevron = $(event.currentTarget).find('.fas');
+      chevron.toggleClass(function () {
+        if ($(this).hasClass('fa-chevron-down')) {
+          return "fa-chevron-up";
+        } else {
+          return "fa-chevron-down";
+        }
+      });
       detail_row.toggleClass('hidden');
     }
   }
@@ -36853,7 +36861,7 @@ var render = function() {
                       staticClass: "link-primary",
                       on: {
                         click: function($event) {
-                          _vm.toggle_row(user.id)
+                          _vm.toggle_row($event, user.id)
                         }
                       }
                     },
@@ -36865,7 +36873,7 @@ var render = function() {
               _c(
                 "tr",
                 {
-                  staticClass: "detail-row hidden",
+                  staticClass: "hidden",
                   attrs: { "data-detail-row": user.id }
                 },
                 [
