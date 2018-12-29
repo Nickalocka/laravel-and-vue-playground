@@ -1902,7 +1902,11 @@ __webpack_require__.r(__webpack_exports__);
   props: ['users'],
   data: function data() {
     return {
-      table_classes: ['_shaded', '_bordered', '_lined'],
+      table_classes: {
+        '_shaded': true,
+        '_bordered': true,
+        '_lined': true
+      },
       columns_showing: {
         'name': true,
         'email': true,
@@ -1926,7 +1930,13 @@ __webpack_require__.r(__webpack_exports__);
       detail_row.toggleClass('hidden');
     },
     toggle_table_class: function toggle_table_class(table_class) {
-      $('#user_table').toggleClass(table_class);
+      if (this.table_classes[table_class] == false) {
+        this.table_classes[table_class] = true;
+      } else {
+        this.table_classes[table_class] = false;
+      }
+
+      this.active_table_classes();
     },
     toggle_column_showing: function toggle_column_showing(column_name) {
       if (this.columns_showing[column_name] == false) {
@@ -1934,6 +1944,16 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.columns_showing[column_name] = false;
       }
+    },
+    active_table_classes: function active_table_classes() {
+      var active_table_classes = [];
+      var table_classes = this.table_classes;
+      Object.keys(table_classes).forEach(function (key) {
+        if (table_classes[key]) {
+          active_table_classes.push(key);
+        }
+      });
+      return active_table_classes;
     }
   }
 });
@@ -36845,11 +36865,14 @@ var render = function() {
       _c(
         "div",
         { staticClass: "checkboxes _inline" },
-        _vm._l(_vm.table_classes, function(table_class) {
-          return _c("label", { staticClass: "checkbox" }, [
+        _vm._l(_vm.table_classes, function(active, table_class) {
+          return _c("label", { key: table_class, staticClass: "checkbox" }, [
             _c("input", {
               attrs: { type: "checkbox" },
-              domProps: { value: table_class },
+              domProps: {
+                value: table_class,
+                checked: _vm.table_classes[table_class]
+              },
               on: {
                 click: function($event) {
                   _vm.toggle_table_class(table_class)
@@ -36894,7 +36917,11 @@ var render = function() {
     _vm._v(" "),
     _c(
       "table",
-      { staticClass: "table _stack-md", attrs: { id: "user_table" } },
+      {
+        staticClass: "table _stack-md",
+        class: _vm.active_table_classes(),
+        attrs: { id: "user_table" }
+      },
       [
         _vm._m(0),
         _vm._v(" "),

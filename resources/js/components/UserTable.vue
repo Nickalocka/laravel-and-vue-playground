@@ -3,8 +3,8 @@
         <div class="form-group">
             <label>Switch Class</label>
             <div class="checkboxes _inline">
-                <label v-for="table_class in table_classes" class="checkbox">
-                    <input type="checkbox" :value="table_class" v-on:click="toggle_table_class(table_class)">
+                <label v-for="(active, table_class) in table_classes" :key="table_class" class="checkbox">
+                    <input type="checkbox" :value="table_class" :checked="table_classes[table_class]" v-on:click="toggle_table_class(table_class)">
                     {{table_class}}
                 </label>
             </div>
@@ -18,7 +18,7 @@
                 </label>
             </div>
         </div>
-        <table class="table _stack-md" id="user_table">
+        <table class="table _stack-md" id="user_table" v-bind:class="active_table_classes()">
             <colgroup>
                 <col>
                 <col>
@@ -106,11 +106,11 @@
         ],
         data () {
             return {
-                table_classes: [
-                    '_shaded',
-                    '_bordered',
-                    '_lined',
-                ],
+                table_classes: {
+                    '_shaded': true,
+                    '_bordered': true,
+                    '_lined': true,
+                },
                 columns_showing: {
                     'name': true,
                     'email': true,
@@ -138,7 +138,13 @@
 
             },
             toggle_table_class: function (table_class) {
-                $('#user_table').toggleClass(table_class);
+                if (this.table_classes[table_class] == false) {
+                    this.table_classes[table_class] = true;
+                } else {
+                    this.table_classes[table_class] = false;
+                }
+
+                this.active_table_classes();
             },
             toggle_column_showing: function (column_name) {
 
@@ -147,6 +153,21 @@
                 } else {
                     this.columns_showing[column_name] = false;
                 }
+            },
+            active_table_classes: function() {
+                var active_table_classes = [];
+                var table_classes = this.table_classes;
+                
+                Object.keys(table_classes).forEach(function(key) {
+
+                    if(table_classes[key]) {
+                        active_table_classes.push(key);
+                    }
+
+                });
+
+                return active_table_classes;
+
             },
         }
     }
