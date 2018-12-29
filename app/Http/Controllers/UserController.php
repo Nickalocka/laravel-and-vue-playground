@@ -10,17 +10,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-
-        $table_classes = [
-            '',
-            '_shaded',
-            '_bordered',
-            '_lined',
-        ];
         
         return view('user/index', [
             'users' => $users,
-            'table_classes' => $table_classes,
         ]);
     }
 
