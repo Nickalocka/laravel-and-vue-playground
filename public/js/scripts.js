@@ -1888,11 +1888,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['users'],
   data: function data() {
     return {
-      table_classes: ['_shaded', '_bordered', '_lined']
+      table_classes: ['_shaded', '_bordered', '_lined'],
+      columns_showing: {
+        'name': true,
+        'email': true,
+        'phone': true,
+        'city': true,
+        'postcode': true
+      }
     };
   },
   methods: {
@@ -1910,6 +1927,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggle_table_class: function toggle_table_class(table_class) {
       $('#user_table').toggleClass(table_class);
+    },
+    toggle_column_showing: function toggle_column_showing(column_name) {
+      if (this.columns_showing[column_name] == false) {
+        this.columns_showing[column_name] = true;
+      } else {
+        this.columns_showing[column_name] = false;
+      }
     }
   }
 });
@@ -36841,13 +36865,72 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Toggle Columns")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "checkboxes _inline" },
+        _vm._l(_vm.columns_showing, function(showing, table_col) {
+          return _c("label", { key: table_col, staticClass: "checkbox" }, [
+            _c("input", {
+              attrs: { type: "checkbox" },
+              domProps: {
+                value: table_col,
+                checked: _vm.columns_showing[table_col]
+              },
+              on: {
+                click: function($event) {
+                  _vm.toggle_column_showing(table_col)
+                }
+              }
+            }),
+            _vm._v("\n                " + _vm._s(table_col) + "\n            ")
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
     _c(
       "table",
       { staticClass: "table _stack-md", attrs: { id: "user_table" } },
       [
         _vm._m(0),
         _vm._v(" "),
-        _vm._m(1),
+        _c("thead", [
+          _c("tr", [
+            _vm.columns_showing["name"]
+              ? _c("th", [_vm._v("\n                Name\n            ")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.columns_showing["email"]
+              ? _c("th", { attrs: { "data-th": "Email:" } }, [
+                  _vm._v("\n                Email\n            ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.columns_showing["phone"]
+              ? _c("th", { attrs: { "data-th": "Phone:" } }, [
+                  _vm._v("\n                Phone\n            ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.columns_showing["city"]
+              ? _c("th", { attrs: { "data-th": "City:" } }, [
+                  _vm._v("\n                City\n            ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.columns_showing["postcode"]
+              ? _c("th", { attrs: { "data-th": "Postcode:" } }, [
+                  _vm._v("\n                Postcode\n            ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("th")
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "tbody",
@@ -36855,47 +36938,57 @@ var render = function() {
             _vm._l(_vm.users, function(user) {
               return [
                 _c("tr", [
-                  _c("td", { attrs: { "data-th": "Name:" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(user.first_name) +
-                        " " +
-                        _vm._s(user.second_name) +
-                        "\n                "
-                    )
-                  ]),
+                  _vm.columns_showing["name"]
+                    ? _c("td", { attrs: { "data-th": "Name:" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(user.first_name) +
+                            " " +
+                            _vm._s(user.second_name) +
+                            "\n                "
+                        )
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("td", { attrs: { "data-th": "Email:" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(user.email) +
-                        "\n                "
-                    )
-                  ]),
+                  _vm.columns_showing["email"]
+                    ? _c("td", { attrs: { "data-th": "Email:" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(user.email) +
+                            "\n                "
+                        )
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("td", { attrs: { "data-th": "Phone:" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(user.phone) +
-                        "\n                "
-                    )
-                  ]),
+                  _vm.columns_showing["phone"]
+                    ? _c("td", { attrs: { "data-th": "Phone:" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(user.phone) +
+                            "\n                "
+                        )
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("td", { attrs: { "data-th": "City:" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(user.city) +
-                        "\n                "
-                    )
-                  ]),
+                  _vm.columns_showing["city"]
+                    ? _c("td", { attrs: { "data-th": "City:" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(user.city) +
+                            "\n                "
+                        )
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c("td", { attrs: { "data-th": "Postcode:" } }, [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(user.postcode) +
-                        "\n                "
-                    )
-                  ]),
+                  _vm.columns_showing["postcode"]
+                    ? _c("td", { attrs: { "data-th": "Postcode:" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(user.postcode) +
+                            "\n                "
+                        )
+                      ])
+                    : _vm._e(),
                   _vm._v(" "),
                   _c("td", { staticClass: "align-right" }, [
                     _c(
@@ -37009,26 +37102,6 @@ var staticRenderFns = [
       _c("col"),
       _vm._v(" "),
       _c("col", { staticStyle: { width: "70px" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("\n                Name\n            ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("\n                Email\n            ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("\n                Phone\n            ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("\n                City\n            ")]),
-        _vm._v(" "),
-        _c("th", { attrs: { colspan: "2" } }, [
-          _vm._v("\n                Postcode\n            ")
-        ])
-      ])
     ])
   }
 ]

@@ -4,8 +4,17 @@
             <label>Switch Class</label>
             <div class="checkboxes _inline">
                 <label v-for="table_class in table_classes" class="checkbox">
-                    <input type="checkbox" v-bind:value="table_class" v-on:click="toggle_table_class(table_class)">
+                    <input type="checkbox" :value="table_class" v-on:click="toggle_table_class(table_class)">
                     {{table_class}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Toggle Columns</label>
+            <div class="checkboxes _inline">
+                <label v-for="(showing, table_col) in columns_showing" :key="table_col" class="checkbox">
+                    <input type="checkbox" :value="table_col" :checked="columns_showing[table_col]" v-on:click="toggle_column_showing(table_col)">
+                    {{table_col}}
                 </label>
             </div>
         </div>
@@ -21,39 +30,40 @@
             </colgroup>
             <thead>
             <tr>
-                <th>
+                <th v-if="columns_showing['name']">
                     Name
                 </th>
-                <th>
+                <th data-th="Email:" v-if="columns_showing['email']">
                     Email
                 </th>
-                <th>
+                <th data-th="Phone:" v-if="columns_showing['phone']">
                     Phone
                 </th>
-                <th>
+                <th data-th="City:" v-if="columns_showing['city']">
                     City
                 </th>
-                <th colspan="2">
+                <th data-th="Postcode:" v-if="columns_showing['postcode']">
                     Postcode
                 </th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <template v-for="user in users">
                 <tr>
-                    <td data-th="Name:">
+                    <td data-th="Name:" v-if="columns_showing['name']">
                         {{ user.first_name }} {{ user.second_name }}
                     </td>
-                    <td data-th="Email:">
+                    <td data-th="Email:" v-if="columns_showing['email']">
                         {{ user.email }}
                     </td>
-                    <td data-th="Phone:">
+                    <td data-th="Phone:" v-if="columns_showing['phone']">
                         {{ user.phone }}
                     </td>
-                    <td data-th="City:">
+                    <td data-th="City:" v-if="columns_showing['city']">
                         {{ user.city }}
                     </td>
-                    <td data-th="Postcode:">
+                    <td data-th="Postcode:" v-if="columns_showing['postcode']">
                         {{ user.postcode }}
                     </td>
                     <td class="align-right">
@@ -101,6 +111,13 @@
                     '_bordered',
                     '_lined',
                 ],
+                columns_showing: {
+                    'name': true,
+                    'email': true,
+                    'phone': true,
+                    'city': true,
+                    'postcode': true,
+                },
             }
         },
         methods: {
@@ -122,7 +139,15 @@
             },
             toggle_table_class: function (table_class) {
                 $('#user_table').toggleClass(table_class);
-            }
+            },
+            toggle_column_showing: function (column_name) {
+
+                if (this.columns_showing[column_name] == false) {
+                    this.columns_showing[column_name] = true;
+                } else {
+                    this.columns_showing[column_name] = false;
+                }
+            },
         }
     }
 </script>
