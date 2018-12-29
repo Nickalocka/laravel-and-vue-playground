@@ -1,11 +1,13 @@
 <template>
     <div>
         <div class="form-group">
-            <span class="input-label">Switch Class</span>
-            <label v-for="table_class in table_classes">
-                <input type="checkbox" v-bind:value="table_class" v-on:click="toggle_table_class(table_class)">
-                {{table_class}}
-            </label>
+            <label>Switch Class</label>
+            <div class="checkboxes _inline">
+                <label v-for="table_class in table_classes" class="checkbox">
+                    <input type="checkbox" v-bind:value="table_class" v-on:click="toggle_table_class(table_class)">
+                    {{table_class}}
+                </label>
+            </div>
         </div>
         <table class="table _stack-md" id="user_table">
             <colgroup>

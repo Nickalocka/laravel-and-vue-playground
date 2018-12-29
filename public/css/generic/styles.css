@@ -10325,25 +10325,53 @@ form.width-lg {
   margin-bottom: 30px;
 }
 
-.form-group > label {
-  display: flex;
-  flex-direction: column;
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   display: block;
   border: 1px solid #d0d0d0;
   padding: 10px;
   height: 40px;
+  width: 100%;
 }
 
-.form-group input + input {
+.form-group input + input,
+.form-group input + select,
+.form-group select + input,
+.form-group select + select {
   margin-top: 10px;
 }
 
-.form-group .input-label {
-  display: block;
-  margin-bottom: 5px;
+.form-group .checkbox {
+  position: relative;
+  padding-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.form-group .checkbox input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 0;
+  top: 1px;
+}
+
+.form-group .checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group .checkboxes._inline {
+  flex-direction: row;
+}
+
+.form-group .checkboxes._inline .checkbox + .checkbox {
+  margin-left: 15px;
 }
 
 ._inline .form-group > label {

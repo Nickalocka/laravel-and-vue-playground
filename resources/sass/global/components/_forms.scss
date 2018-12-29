@@ -7,30 +7,56 @@ form {
 .form-group {
   margin-bottom: 30px;
 
-  //label wraps around
-  & > label {
-    display: flex;
-    flex-direction: column;
-  }
-
-  input {
-    display: block;
-    border: 1px solid $colour_main_light-grey;
-    padding: 10px;
-    height: 40px;
-
-    //add a bit of spacing for multiple inputs inside one form group
-    & + input {
-      margin-top: 10px;
-    }
-  }
-
-  .input-label {
+  label {
     display: block;
     margin-bottom: 5px;
   }
 
-  //modifier that puts the label next to input, defaults to above input
+  input, select {
+    display: block;
+    border: 1px solid $colour_main_light-grey;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+
+    //add a bit of spacing for multiple inputs inside one form group
+    & + input, & + select {
+      margin-top: 10px;
+    }
+  }
+
+  .checkbox {
+    position: relative;
+    padding-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    input[type=checkbox] {
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+
+  }
+
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+
+    &._inline {
+      flex-direction: row;
+
+      .checkbox {
+        & + .checkbox {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+
+  //modifier that puts the label next to input, defaults to above input, wip not working
   ._inline & {
     & > label {
       border: 1px solid $colour_main_light-grey;

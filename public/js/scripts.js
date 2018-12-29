@@ -1886,6 +1886,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['users'],
   data: function data() {
@@ -36813,14 +36815,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c("span", { staticClass: "input-label" }, [_vm._v("Switch Class")]),
-        _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Switch Class")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "checkboxes _inline" },
         _vm._l(_vm.table_classes, function(table_class) {
-          return _c("label", [
+          return _c("label", { staticClass: "checkbox" }, [
             _c("input", {
               attrs: { type: "checkbox" },
               domProps: { value: table_class },
@@ -36830,12 +36832,14 @@ var render = function() {
                 }
               }
             }),
-            _vm._v("\n            " + _vm._s(table_class) + "\n        ")
+            _vm._v(
+              "\n                " + _vm._s(table_class) + "\n            "
+            )
           ])
-        })
-      ],
-      2
-    ),
+        }),
+        0
+      )
+    ]),
     _vm._v(" "),
     _c(
       "table",
