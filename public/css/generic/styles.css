@@ -10405,13 +10405,38 @@ form.width-lg {
   border: 1px solid #d0d0d0;
 }
 
+.table._lined td {
+  border-bottom: 1px solid #d0d0d0;
+}
+
 .table._shaded th,
 .table._shaded td {
   background: #d0d0d0;
 }
 
-.table._lined td {
-  border-bottom: 1px solid #d0d0d0;
+.table._shaded._bordered th,
+.table._shaded._bordered td {
+  border: 1px solid #aaaaaa;
+  background: #d0d0d0;
+}
+
+.table._shaded._lined th,
+.table._shaded._lined td {
+  border-bottom: 1px solid #aaaaaa;
+  background: #d0d0d0;
+}
+
+.table._bordered._lined th,
+.table._bordered._lined td {
+  border: 1px solid #d0d0d0;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.table._shaded._bordered._lined th,
+.table._shaded._bordered._lined td {
+  border: 1px solid #aaaaaa;
+  border-bottom: 1px solid #777777;
+  background: #d0d0d0;
 }
 
 @media only screen and (max-width: 450px) {
