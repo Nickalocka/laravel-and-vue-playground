@@ -138,26 +138,15 @@
 
             },
             toggle_table_class: function (table_class) {
-                if (this.table_classes[table_class] == false) {
-                    this.table_classes[table_class] = true;
-                } else {
-                    this.table_classes[table_class] = false;
-                }
-
-                this.active_table_classes();
+                return this.table_classes[table_class] ? this.table_classes[table_class] = false : this.table_classes[table_class] = true;
             },
             toggle_column_showing: function (column_name) {
-
-                if (this.columns_showing[column_name] == false) {
-                    this.columns_showing[column_name] = true;
-                } else {
-                    this.columns_showing[column_name] = false;
-                }
+                return this.columns_showing[column_name] ? this.columns_showing[column_name] = false : this.columns_showing[column_name] = true;
             },
             active_table_classes: function() {
                 var active_table_classes = [];
                 var table_classes = this.table_classes;
-                
+
                 Object.keys(table_classes).forEach(function(key) {
 
                     if(table_classes[key]) {

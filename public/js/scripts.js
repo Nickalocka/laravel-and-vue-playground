@@ -1930,20 +1930,10 @@ __webpack_require__.r(__webpack_exports__);
       detail_row.toggleClass('hidden');
     },
     toggle_table_class: function toggle_table_class(table_class) {
-      if (this.table_classes[table_class] == false) {
-        this.table_classes[table_class] = true;
-      } else {
-        this.table_classes[table_class] = false;
-      }
-
-      this.active_table_classes();
+      return this.table_classes[table_class] ? this.table_classes[table_class] = false : this.table_classes[table_class] = true;
     },
     toggle_column_showing: function toggle_column_showing(column_name) {
-      if (this.columns_showing[column_name] == false) {
-        this.columns_showing[column_name] = true;
-      } else {
-        this.columns_showing[column_name] = false;
-      }
+      return this.columns_showing[column_name] ? this.columns_showing[column_name] = false : this.columns_showing[column_name] = true;
     },
     active_table_classes: function active_table_classes() {
       var active_table_classes = [];
