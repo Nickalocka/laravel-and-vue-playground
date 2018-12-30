@@ -4,7 +4,7 @@
             <label>Switch Class</label>
             <div class="checkboxes _inline">
                 <label v-for="(active, table_class) in table_classes" :key="table_class" class="checkbox">
-                    <input type="checkbox" :value="table_class" :checked="table_classes[table_class]" v-on:click="toggle_table_class(table_class)">
+                    <input type="checkbox" v-model="table_classes[table_class]">
                     {{table_class}}
                 </label>
             </div>
@@ -13,12 +13,12 @@
             <label>Toggle Columns</label>
             <div class="checkboxes _inline">
                 <label v-for="(showing, table_col) in columns_showing" :key="table_col" class="checkbox">
-                    <input type="checkbox" :value="table_col" :checked="columns_showing[table_col]" v-on:click="toggle_column_showing(table_col)">
+                    <input type="checkbox" v-model="columns_showing[table_col]">
                     {{table_col}}
                 </label>
             </div>
         </div>
-        <table class="table _stack-md" id="user_table" v-bind:class="active_table_classes()">
+        <table class="table _stack-md" id="user_table" v-bind:class="active_table_classes">
             <colgroup>
                 <col>
                 <col>
@@ -128,21 +128,36 @@
             }
         },
         computed: {
-          columns_showing_count: function(){
-              var active_columns = [];
-              var columns_showing = this.columns_showing;
+            columns_showing_count: function () {
+                var active_columns = [];
+                var columns_showing = this.columns_showing;
 
-              Object.keys(columns_showing).forEach(function(key) {
+                Object.keys(columns_showing).forEach(function (key) {
 
-                  if(columns_showing[key]) {
-                      active_columns.push(key);
-                  }
+                    if (columns_showing[key]) {
+                        active_columns.push(key);
+                    }
 
-              });
+                });
 
-              return active_columns.length + 1;
+                return active_columns.length + 1;
 
-          },
+            },
+            active_table_classes: function () {
+                var active_table_classes = [];
+                var table_classes = this.table_classes;
+
+                Object.keys(table_classes).forEach(function (key) {
+
+                    if (table_classes[key]) {
+                        active_table_classes.push(key);
+                    }
+
+                });
+
+                return active_table_classes;
+
+            },
         },
         methods: {
             toggle_row: function (event, user_id) {
@@ -159,27 +174,6 @@
                 });
 
                 detail_row.toggleClass('hidden');
-
-            },
-            toggle_table_class: function (table_class) {
-                return this.table_classes[table_class] ? this.table_classes[table_class] = false : this.table_classes[table_class] = true;
-            },
-            toggle_column_showing: function (column_name) {
-                return this.columns_showing[column_name] ? this.columns_showing[column_name] = false : this.columns_showing[column_name] = true;
-            },
-            active_table_classes: function() {
-                var active_table_classes = [];
-                var table_classes = this.table_classes;
-
-                Object.keys(table_classes).forEach(function(key) {
-
-                    if(table_classes[key]) {
-                        active_table_classes.push(key);
-                    }
-
-                });
-
-                return active_table_classes;
 
             },
             address_lines: function (user) {

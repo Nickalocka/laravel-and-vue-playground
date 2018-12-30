@@ -1933,6 +1933,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       return active_columns.length + 1;
+    },
+    active_table_classes: function active_table_classes() {
+      var active_table_classes = [];
+      var table_classes = this.table_classes;
+      Object.keys(table_classes).forEach(function (key) {
+        if (table_classes[key]) {
+          active_table_classes.push(key);
+        }
+      });
+      return active_table_classes;
     }
   },
   methods: {
@@ -1947,22 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       detail_row.toggleClass('hidden');
-    },
-    toggle_table_class: function toggle_table_class(table_class) {
-      return this.table_classes[table_class] ? this.table_classes[table_class] = false : this.table_classes[table_class] = true;
-    },
-    toggle_column_showing: function toggle_column_showing(column_name) {
-      return this.columns_showing[column_name] ? this.columns_showing[column_name] = false : this.columns_showing[column_name] = true;
-    },
-    active_table_classes: function active_table_classes() {
-      var active_table_classes = [];
-      var table_classes = this.table_classes;
-      Object.keys(table_classes).forEach(function (key) {
-        if (table_classes[key]) {
-          active_table_classes.push(key);
-        }
-      });
-      return active_table_classes;
     },
     address_lines: function address_lines(user) {
       var address = [user.address_1, user.address_2, user.address_3];
@@ -36881,14 +36875,46 @@ var render = function() {
         _vm._l(_vm.table_classes, function(active, table_class) {
           return _c("label", { key: table_class, staticClass: "checkbox" }, [
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.table_classes[table_class],
+                  expression: "table_classes[table_class]"
+                }
+              ],
               attrs: { type: "checkbox" },
               domProps: {
-                value: table_class,
-                checked: _vm.table_classes[table_class]
+                checked: Array.isArray(_vm.table_classes[table_class])
+                  ? _vm._i(_vm.table_classes[table_class], null) > -1
+                  : _vm.table_classes[table_class]
               },
               on: {
-                click: function($event) {
-                  _vm.toggle_table_class(table_class)
+                change: function($event) {
+                  var $$a = _vm.table_classes[table_class],
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(
+                          _vm.table_classes,
+                          table_class,
+                          $$a.concat([$$v])
+                        )
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.table_classes,
+                          table_class,
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.table_classes, table_class, $$c)
+                  }
                 }
               }
             }),
@@ -36910,14 +36936,46 @@ var render = function() {
         _vm._l(_vm.columns_showing, function(showing, table_col) {
           return _c("label", { key: table_col, staticClass: "checkbox" }, [
             _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.columns_showing[table_col],
+                  expression: "columns_showing[table_col]"
+                }
+              ],
               attrs: { type: "checkbox" },
               domProps: {
-                value: table_col,
-                checked: _vm.columns_showing[table_col]
+                checked: Array.isArray(_vm.columns_showing[table_col])
+                  ? _vm._i(_vm.columns_showing[table_col], null) > -1
+                  : _vm.columns_showing[table_col]
               },
               on: {
-                click: function($event) {
-                  _vm.toggle_column_showing(table_col)
+                change: function($event) {
+                  var $$a = _vm.columns_showing[table_col],
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 &&
+                        _vm.$set(
+                          _vm.columns_showing,
+                          table_col,
+                          $$a.concat([$$v])
+                        )
+                    } else {
+                      $$i > -1 &&
+                        _vm.$set(
+                          _vm.columns_showing,
+                          table_col,
+                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                        )
+                    }
+                  } else {
+                    _vm.$set(_vm.columns_showing, table_col, $$c)
+                  }
                 }
               }
             }),
@@ -36932,7 +36990,7 @@ var render = function() {
       "table",
       {
         staticClass: "table _stack-md",
-        class: _vm.active_table_classes(),
+        class: _vm.active_table_classes,
         attrs: { id: "user_table" }
       },
       [
