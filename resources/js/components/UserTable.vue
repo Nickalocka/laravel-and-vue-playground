@@ -82,7 +82,7 @@
                     </td>
                 </tr>
                 <tr :data-detail-row="user.id" class="hidden">
-                    <td colspan="6">
+                    <td :colspan="columns_showing_count">
                         <div class="box _bordered">
                             <strong>Address:</strong>
                             <p>
@@ -126,6 +126,23 @@
                     'postcode': true,
                 },
             }
+        },
+        computed: {
+          columns_showing_count: function(){
+              var active_columns = [];
+              var columns_showing = this.columns_showing;
+
+              Object.keys(columns_showing).forEach(function(key) {
+
+                  if(columns_showing[key]) {
+                      active_columns.push(key);
+                  }
+
+              });
+
+              return active_columns.length + 1;
+
+          },
         },
         methods: {
             toggle_row: function (event, user_id) {
@@ -174,7 +191,7 @@
                 ];
 
                 return address.filter(Boolean).join(", ");
-                
+
             },
         }
     }

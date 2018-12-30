@@ -1923,6 +1923,18 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  computed: {
+    columns_showing_count: function columns_showing_count() {
+      var active_columns = [];
+      var columns_showing = this.columns_showing;
+      Object.keys(columns_showing).forEach(function (key) {
+        if (columns_showing[key]) {
+          active_columns.push(key);
+        }
+      });
+      return active_columns.length + 1;
+    }
+  },
   methods: {
     toggle_row: function toggle_row(event, user_id) {
       var detail_row = $('[data-detail-row=' + user_id + ']');
@@ -37056,58 +37068,62 @@ var render = function() {
                     attrs: { "data-detail-row": user.id }
                   },
                   [
-                    _c("td", { attrs: { colspan: "6" } }, [
-                      _c("div", { staticClass: "box _bordered" }, [
-                        _c("strong", [_vm._v("Address:")]),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          [
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(user.address_1) +
-                                " "
-                            ),
-                            _c("br"),
-                            _vm._v(" "),
-                            user.address_2
-                              ? [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(user.address_2) +
-                                      " "
-                                  ),
-                                  _c("br")
-                                ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            user.address_3
-                              ? [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(user.address_3) +
-                                      " "
-                                  ),
-                                  _c("br")
-                                ]
-                              : _vm._e(),
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(user.city) +
-                                " "
-                            ),
-                            _c("br"),
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(user.postcode) +
-                                " "
-                            ),
-                            _c("br")
-                          ],
-                          2
-                        )
-                      ])
-                    ])
+                    _c(
+                      "td",
+                      { attrs: { colspan: _vm.columns_showing_count } },
+                      [
+                        _c("div", { staticClass: "box _bordered" }, [
+                          _c("strong", [_vm._v("Address:")]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(user.address_1) +
+                                  " "
+                              ),
+                              _c("br"),
+                              _vm._v(" "),
+                              user.address_2
+                                ? [
+                                    _vm._v(
+                                      "\n                                " +
+                                        _vm._s(user.address_2) +
+                                        " "
+                                    ),
+                                    _c("br")
+                                  ]
+                                : _vm._e(),
+                              _vm._v(" "),
+                              user.address_3
+                                ? [
+                                    _vm._v(
+                                      "\n                                " +
+                                        _vm._s(user.address_3) +
+                                        " "
+                                    ),
+                                    _c("br")
+                                  ]
+                                : _vm._e(),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(user.city) +
+                                  " "
+                              ),
+                              _c("br"),
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(user.postcode) +
+                                  " "
+                              ),
+                              _c("br")
+                            ],
+                            2
+                          )
+                        ])
+                      ]
+                    )
                   ]
                 )
               ]
