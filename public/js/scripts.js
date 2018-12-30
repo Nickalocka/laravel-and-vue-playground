@@ -1898,6 +1898,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['users'],
   data: function data() {
@@ -1911,6 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
         'name': true,
         'email': true,
         'phone': true,
+        'address_lines': false,
         'city': true,
         'postcode': true
       }
@@ -1944,6 +1951,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
       return active_table_classes;
+    },
+    address_lines: function address_lines(user) {
+      var address = [user.address_1, user.address_2, user.address_3];
+      return address.filter(Boolean).join(", ");
     }
   }
 });
@@ -36922,27 +36933,23 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _vm.columns_showing["email"]
-              ? _c("th", { attrs: { "data-th": "Email:" } }, [
-                  _vm._v("\n                Email\n            ")
-                ])
+              ? _c("th", [_vm._v("\n                Email\n            ")])
               : _vm._e(),
             _vm._v(" "),
             _vm.columns_showing["phone"]
-              ? _c("th", { attrs: { "data-th": "Phone:" } }, [
-                  _vm._v("\n                Phone\n            ")
-                ])
+              ? _c("th", [_vm._v("\n                Phone\n            ")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.columns_showing["address_lines"]
+              ? _c("th", [_vm._v("\n                Address\n            ")])
               : _vm._e(),
             _vm._v(" "),
             _vm.columns_showing["city"]
-              ? _c("th", { attrs: { "data-th": "City:" } }, [
-                  _vm._v("\n                City\n            ")
-                ])
+              ? _c("th", [_vm._v("\n                City\n            ")])
               : _vm._e(),
             _vm._v(" "),
             _vm.columns_showing["postcode"]
-              ? _c("th", { attrs: { "data-th": "Postcode:" } }, [
-                  _vm._v("\n                Postcode\n            ")
-                ])
+              ? _c("th", [_vm._v("\n                Postcode\n            ")])
               : _vm._e(),
             _vm._v(" "),
             _c("th")
@@ -36982,6 +36989,16 @@ var render = function() {
                         _vm._v(
                           "\n                    " +
                             _vm._s(user.phone) +
+                            "\n                "
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.columns_showing["address_lines"]
+                    ? _c("td", { attrs: { "data-th": "Address:" } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(_vm.address_lines(user)) +
                             "\n                "
                         )
                       ])

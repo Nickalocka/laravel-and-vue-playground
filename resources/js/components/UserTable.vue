@@ -33,16 +33,19 @@
                 <th v-if="columns_showing['name']">
                     Name
                 </th>
-                <th data-th="Email:" v-if="columns_showing['email']">
+                <th v-if="columns_showing['email']">
                     Email
                 </th>
-                <th data-th="Phone:" v-if="columns_showing['phone']">
+                <th v-if="columns_showing['phone']">
                     Phone
                 </th>
-                <th data-th="City:" v-if="columns_showing['city']">
+                <th v-if="columns_showing['address_lines']">
+                    Address
+                </th>
+                <th v-if="columns_showing['city']">
                     City
                 </th>
-                <th data-th="Postcode:" v-if="columns_showing['postcode']">
+                <th v-if="columns_showing['postcode']">
                     Postcode
                 </th>
                 <th></th>
@@ -59,6 +62,9 @@
                     </td>
                     <td data-th="Phone:" v-if="columns_showing['phone']">
                         {{ user.phone }}
+                    </td>
+                    <td data-th="Address:" v-if="columns_showing['address_lines']">
+                        {{ address_lines(user) }}
                     </td>
                     <td data-th="City:" v-if="columns_showing['city']">
                         {{ user.city }}
@@ -115,6 +121,7 @@
                     'name': true,
                     'email': true,
                     'phone': true,
+                    'address_lines': false,
                     'city': true,
                     'postcode': true,
                 },
@@ -157,6 +164,17 @@
 
                 return active_table_classes;
 
+            },
+            address_lines: function (user) {
+
+                var address = [
+                    user.address_1,
+                    user.address_2,
+                    user.address_3,
+                ];
+
+                return address.filter(Boolean).join(", ");
+                
             },
         }
     }
